@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <!-- MDBootstrap CSS and JS links -->
+  <link href="css/mdb.min.css" rel="stylesheet"/>
+  <script src="js/mdb.min.js"></script>
+
+  <style>
+    body {
+      background-color: #797979;
+    }
+
+    .calculator {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .calculator .card-body {
+      padding: 30px;
+    }
+
+    .form-control {
+      text-align: right;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    .form-control  {
+      border-color: #29b6f6 !important;
+      box-shadow: 0px 0px 10px rgba(41, 182, 246, 0.5);
+    }
+
+    .calc-btn {
+      border-radius: 50px;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .calc-btn:hover {
+      background-color: #5c6bc0;
+      color: white;
+    }
+
+    .calc-mul, .calc-sep, .calc-plus, .calc-div {
+      background-color: blueviolet ;
+      color: white;
+    }
+
+    .calc-clear {
+      background-color: #ff6f61;
+      color: white;
+    }
+
+    .calc-equal {
+      background-color: #0baf0b;
+      color: white;
+    }
+
+    .calc-clear:hover {
+      background-color: #ff0101;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card calculator shadow-5">
+          <div class="card-body">
+            <h4 class="text-center mb-4">Calculator</h4>
+            <div class="form-outline mb-4">
+              <input type="text" id="display" class="form-control" placeholder="0" readonly>
+              <label class="form-label" for="display"></label>
+            </div>
+
+            <div class="row text-center">
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn calc-clear w-100" onclick="clearDisplay()">C</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('0')">0</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn calc-div w-100" onclick="appendToDisplay('/')">/</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn calc-plus w-100" onclick="appendToDisplay('+')">+</button>
+              </div>
+
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('7')">7</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('8')">8</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('9')">9</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn calc-sep w-100" onclick="appendToDisplay('-')">-</button>
+              </div>
+
+
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('4')">4</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('5')">5</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('6')">6</button>
+              </div>  
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn calc-mul w-100" onclick="appendToDisplay('*')">*</button>
+              </div>
+
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('1')">1</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('2')">2</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn w-100" onclick="appendToDisplay('3')">3</button>
+              </div>
+              <div class="col-3 mb-2">
+                <button class="btn calc-btn calc-equal w-100" onclick="calculate()">=</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+
+    function calculate() {
+      try {
+        const result = eval(document.getElementById('display').value);
+        document.getElementById('display').value = result;
+      } catch (e) {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+  </script>
+
+</body>
+</html>
