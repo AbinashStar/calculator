@@ -6,6 +6,8 @@ MDB is a collection of free Bootstrap templates, themes, design tools & resource
 
 # Get started
 
+![Project Logo](img/calculator.png)
+
 ### [>> Get Started in 1 minute](https://mdbootstrap.com/docs/standard/getting-started/installation/)
 Simple installation via .zip, npm or cdnjs.
 
